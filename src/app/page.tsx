@@ -122,7 +122,7 @@ export default function Home() {
                     <span className="px-3 py-1 bg-green-400/20 text-green-400 rounded border border-green-400/30 text-sm font-mono">Spark</span>
                     <span className="px-3 py-1 bg-green-400/20 text-green-400 rounded border border-green-400/30 text-sm font-mono">Airflow</span>
 
-
+ 
                   </div>
 
                   {/* Databases */}
