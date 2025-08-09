@@ -117,6 +117,7 @@ export default function Home() {
                     <span className="px-3 py-1 bg-green-400/20 text-green-400 rounded border border-green-400/30 text-sm font-mono">FastAPI</span>
                     <span className="px-3 py-1 bg-green-400/20 text-green-400 rounded border border-green-400/30 text-sm font-mono">Node.js</span>
                     <span className="px-3 py-1 bg-green-400/20 text-green-400 rounded border border-green-400/30 text-sm font-mono">Express</span>
+                    <span className="px-3 py-1 bg-green-400/20 text-green-400 rounded border border-green-400/30 text-sm font-mono">LangChain</span>
                     <span className="px-3 py-1 bg-green-400/20 text-green-400 rounded border border-green-400/30 text-sm font-mono">Tailwind CSS</span>
                     <span className="px-3 py-1 bg-green-400/20 text-green-400 rounded border border-green-400/30 text-sm font-mono">Spark</span>
                     <span className="px-3 py-1 bg-green-400/20 text-green-400 rounded border border-green-400/30 text-sm font-mono">Airflow</span>
@@ -130,6 +131,7 @@ export default function Home() {
                     <span className="px-3 py-1 bg-red-400/20 text-red-400 rounded border border-red-400/30 text-sm font-mono">MongoDB</span>
                     <span className="px-3 py-1 bg-red-400/20 text-red-400 rounded border border-red-400/30 text-sm font-mono">Firebase</span>
                     <span className="px-3 py-1 bg-red-400/20 text-red-400 rounded border border-red-400/30 text-sm font-mono">MySQL</span>
+                    <span className="px-3 py-1 bg-red-400/20 text-red-400 rounded border border-red-400/30 text-sm font-mono">Microsoft SQL Server</span>
                   </div>
 
                   {/* Cloud & DevOps */}
