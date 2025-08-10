@@ -3,20 +3,28 @@ import { ArrowLeft, ExternalLink, Github, Code, Terminal, Linkedin } from "lucid
 
 const projects = [
   {
-    title: "Personal Website",
-    description: "A modern personal website built with Next.js, TypeScript, and Tailwind CSS. Features a clean design with dark mode support and responsive layout.",
-    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "MDX"],
-    github: "https://github.com/yourusername/personal-website",
+    title: "FinAgent-AI",
+    description: "FinAgent-AI is a full-stack mobile application that leverages artificial intelligence to analyze SEC 10-Q earnings reports and provide real-time investment insights. Built with React Native and FastAPI, the platform combines AI technology with financial data to help users make informed investment decisions.",
+    technologies: ["Python", "TypeScript","React Native", "FastAPI", "Firebase Auth", "PostgreSQL", "OpenAI API"],
+    github: "https://github.com/matthewli10/FinAgent-AI",
     live: null,
     featured: true
   },
   {
-    title: "FinAgent-AI",
-    description: "FinAgent-AI is a full-stack mobile application that leverages artificial intelligence to analyze SEC 10-Q earnings reports and provide real-time investment insights. Built with React Native and FastAPI, the platform combines AI technology with financial data to help users make informed investment decisions.",
-    technologies: ["React Native", "FastAPI", "Python", "AI/ML", "Financial Data", "SEC Reports"],
-    github: "https://github.com/matthewli10/FinAgent-AI",
+    title: "Personal Website",
+    description: "A modern personal website built with Next.js, TypeScript, and Tailwind CSS. Features my past and current experienecs and projects. ",
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "MDX"],
+    github: "https://github.com/matthewli10/personalSite",
     live: null,
     featured: true
+  },
+  {
+    title: "GreenGrade",
+    description: "GreenGrade is a Chrome extension that evaluates the sustainability of any product online. It uses OpenAI’s API to analyze a product’s ingredients and materials, assigns a sustainability grade, explains its reasoning, and suggests eco-friendly alternatives. Developed during SBHacks 2024.",
+    technologies: ["JavaScript", "HTML", "CSS", "Node.js", "Express", "OpenAI API"],
+    github: "https://github.com/matthewli10/GreenGrade",
+    live: null,
+    featured: false
   }
 ];
 
