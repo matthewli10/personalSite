@@ -1,45 +1,13 @@
 import Link from "next/link";
-import { ArrowLeft, Calendar, Clock, FileText, Terminal } from "lucide-react";
+import { ArrowLeft, Calendar, Clock, FileText, Github, Linkedin, Mail } from "lucide-react";
 
 const notes = [
   {
-    title: "Building a Modern Personal Website with Next.js",
-    excerpt: "A comprehensive guide on how I built this personal website using Next.js 15, TypeScript, and Tailwind CSS. Learn about the architecture, design decisions, and deployment strategy.",
-    date: "2024-01-15",
-    readTime: "8 min read",
-    slug: "building-modern-personal-website",
-    featured: true
-  },
-  {
-    title: "Understanding React Server Components",
-    excerpt: "Deep dive into React Server Components, their benefits, and how they're changing the way we build React applications. Includes practical examples and best practices.",
-    date: "2024-01-10",
-    readTime: "12 min read",
-    slug: "understanding-react-server-components",
-    featured: false
-  },
-  {
-    title: "TypeScript Best Practices for 2024",
-    excerpt: "Essential TypeScript patterns and practices that every developer should know. From basic types to advanced generics and utility types.",
-    date: "2024-01-05",
-    readTime: "10 min read",
-    slug: "typescript-best-practices-2024",
-    featured: false
-  },
-  {
-    title: "Optimizing Performance in Next.js Applications",
-    excerpt: "Learn how to optimize your Next.js applications for better performance, including image optimization, code splitting, and caching strategies.",
-    date: "2023-12-28",
-    readTime: "15 min read",
-    slug: "optimizing-nextjs-performance",
-    featured: false
-  },
-  {
-    title: "The Future of Web Development: What's Next?",
-    excerpt: "Exploring emerging trends in web development, from AI-powered tools to new frameworks and the evolution of the web platform.",
-    date: "2023-12-20",
-    readTime: "6 min read",
-    slug: "future-of-web-development",
+    title: "My Top Songs",
+    excerpt: "A collection of my favorite songs, current and past.",
+    date: "2025-01-15",
+    readTime: "2 min read",
+    slug: "my-top-songs",
     featured: false
   }
 ];
@@ -93,14 +61,14 @@ export default function Notes() {
             <span className="text-purple-300">.txt</span>
           </h1>
           <p className="text-xl text-slate-300 max-w-2xl font-mono">
-            <span className="text-cyan-400">//</span> Thoughts, tutorials, and insights about web development, 
-            technology, and the things I learn along the way.
+            <span className="text-cyan-400">//</span> Personal thoughts and random musings 
+            about the things I enjoy and discover. More to come...
           </p>
         </div>
       </section>
 
       {/* Featured Article */}
-      <section className="pb-16 px-6">
+      <section className="pb-8 px-6">
         <div className="max-w-4xl mx-auto">
           {notes.filter(note => note.featured).map((note) => (
             <div key={note.slug} className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-lg p-8 border border-cyan-400/30 mb-12 relative overflow-hidden">
@@ -185,25 +153,38 @@ export default function Notes() {
         </div>
       </section>
 
-      {/* Newsletter Signup */}
-      <section className="py-16 px-6 bg-slate-800/30 backdrop-blur-sm border-t border-b border-cyan-400/20">
+      {/* Social Links Section */}
+      <section className="py-16 px-6 relative">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-2xl font-bold text-white mb-4 font-mono">
-            &lt;Stay_Updated&gt;
+          <h2 className="text-2xl font-bold text-white mb-8 font-mono">
+            &lt;Connect_With_Me&gt;
           </h2>
-          <p className="text-slate-300 mb-8 max-w-2xl mx-auto font-mono">
-            <span className="text-cyan-400">//</span> Get notified when I publish new articles about web development, 
-            technology, and the latest industry trends.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
-            <input 
-              type="email" 
-              placeholder="Enter your email"
-              className="flex-1 px-4 py-3 border border-cyan-400/30 rounded-lg bg-slate-800/50 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent font-mono"
-            />
-            <button className="px-6 py-3 bg-gradient-to-r from-cyan-500 to-purple-500 text-white rounded-lg font-mono font-semibold hover:from-cyan-600 hover:to-purple-600 transition-all duration-300 shadow-lg hover:shadow-cyan-500/25 hover:scale-105">
-              Subscribe
-            </button>
+          <div className="flex justify-center items-center gap-8">
+            <a
+              href="mailto:matthewli.rt@gmail.com"
+              className="group flex items-center gap-2 bg-slate-800/50 px-6 py-3 rounded-lg text-slate-300 hover:text-cyan-400 transition-all duration-300 border border-cyan-400/30 hover:border-cyan-400/60 hover:shadow-lg hover:shadow-cyan-500/25"
+            >
+              <Mail className="w-6 h-6 group-hover:scale-110 transition-transform" />
+              <span className="font-mono">Email</span>
+            </a>
+            <a
+              href="https://linkedin.com/in/matthewli15" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-2 bg-slate-800/50 px-6 py-3 rounded-lg text-slate-300 hover:text-cyan-400 transition-all duration-300 border border-cyan-400/30 hover:border-cyan-400/60 hover:shadow-lg hover:shadow-cyan-500/25"
+            >
+              <Linkedin className="w-6 h-6 group-hover:scale-110 transition-transform" />
+              <span className="font-mono">LinkedIn</span>
+            </a>
+            <a 
+              href="https://github.com/matthewli10" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-2 bg-slate-800/50 px-6 py-3 rounded-lg text-slate-300 hover:text-cyan-400 transition-all duration-300 border border-cyan-400/30 hover:border-cyan-400/60 hover:shadow-lg hover:shadow-cyan-500/25"
+            >
+              <Github className="w-6 h-6 group-hover:scale-110 transition-transform" />
+              <span className="font-mono">GitHub</span>
+            </a>
           </div>
         </div>
       </section>
@@ -216,4 +197,4 @@ export default function Notes() {
       </footer>
     </div>
   );
-} 
+}

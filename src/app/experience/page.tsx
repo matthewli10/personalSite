@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowLeft, Calendar, MapPin, Building, Github, Linkedin } from "lucide-react";
+import { ArrowLeft, Calendar, MapPin, Building, Github, Linkedin, Mail } from "lucide-react";
 
 const experiences = [
   {
@@ -151,14 +151,12 @@ export default function Experience() {
             &lt;Connect_With_Me&gt;
           </h2>
           <div className="flex justify-center items-center gap-8">
-            <a 
-              href="https://github.com/matthewli10" 
-              target="_blank"
-              rel="noopener noreferrer"
+            <a
+              href="mailto:matthewli.rt@gmail.com"
               className="group flex items-center gap-2 bg-slate-800/50 px-6 py-3 rounded-lg text-slate-300 hover:text-cyan-400 transition-all duration-300 border border-cyan-400/30 hover:border-cyan-400/60 hover:shadow-lg hover:shadow-cyan-500/25"
             >
-              <Github className="w-6 h-6 group-hover:scale-110 transition-transform" />
-              <span className="font-mono">GitHub</span>
+              <Mail className="w-6 h-6 group-hover:scale-110 transition-transform" />
+              <span className="font-mono">Email</span>
             </a>
             <a
               href="https://linkedin.com/in/matthewli15" 
@@ -168,6 +166,15 @@ export default function Experience() {
             >
               <Linkedin className="w-6 h-6 group-hover:scale-110 transition-transform" />
               <span className="font-mono">LinkedIn</span>
+            </a>
+            <a 
+              href="https://github.com/matthewli10" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-2 bg-slate-800/50 px-6 py-3 rounded-lg text-slate-300 hover:text-cyan-400 transition-all duration-300 border border-cyan-400/30 hover:border-cyan-400/60 hover:shadow-lg hover:shadow-cyan-500/25"
+            >
+              <Github className="w-6 h-6 group-hover:scale-110 transition-transform" />
+              <span className="font-mono">GitHub</span>
             </a>
           </div>
         </div>
