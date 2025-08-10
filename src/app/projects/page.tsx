@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowLeft, ExternalLink, Github, Code, Terminal } from "lucide-react";
+import { ArrowLeft, ExternalLink, Github, Code, Terminal, Linkedin } from "lucide-react";
 
 const projects = [
   {
@@ -7,32 +7,16 @@ const projects = [
     description: "A modern personal website built with Next.js, TypeScript, and Tailwind CSS. Features a clean design with dark mode support and responsive layout.",
     technologies: ["Next.js", "TypeScript", "Tailwind CSS", "MDX"],
     github: "https://github.com/yourusername/personal-website",
-    live: "https://yourwebsite.com",
+    live: null,
     featured: true
   },
   {
-    title: "Task Management App",
-    description: "A full-stack task management application with real-time updates, user authentication, and collaborative features.",
-    technologies: ["React", "Node.js", "MongoDB", "Socket.io"],
-    github: "https://github.com/yourusername/task-app",
-    live: "https://task-app.vercel.app",
+    title: "FinAgent-AI",
+    description: "FinAgent-AI is a full-stack mobile application that leverages artificial intelligence to analyze SEC 10-Q earnings reports and provide real-time investment insights. Built with React Native and FastAPI, the platform combines AI technology with financial data to help users make informed investment decisions.",
+    technologies: ["React Native", "FastAPI", "Python", "AI/ML", "Financial Data", "SEC Reports"],
+    github: "https://github.com/matthewli10/FinAgent-AI",
+    live: null,
     featured: true
-  },
-  {
-    title: "Weather Dashboard",
-    description: "A weather dashboard that displays current weather conditions and forecasts using multiple weather APIs.",
-    technologies: ["React", "TypeScript", "OpenWeather API", "Chart.js"],
-    github: "https://github.com/yourusername/weather-dashboard",
-    live: "https://weather-dashboard.vercel.app",
-    featured: false
-  },
-  {
-    title: "E-commerce Platform",
-    description: "A complete e-commerce solution with payment processing, inventory management, and admin dashboard.",
-    technologies: ["Next.js", "Stripe", "PostgreSQL", "Prisma"],
-    github: "https://github.com/yourusername/ecommerce-platform",
-    live: "https://ecommerce-platform.vercel.app",
-    featured: false
   }
 ];
 
@@ -85,8 +69,8 @@ export default function Projects() {
             <span className="text-purple-300">.exe</span>
           </h1>
           <p className="text-xl text-slate-300 max-w-2xl font-mono">
-            <span className="text-cyan-400">//</span> Here are some of the projects I've worked on. 
-            Each one represents a learning experience and a step forward in my development journey.
+            <span className="text-cyan-400">//</span> Here are some projects I've worked on. 
+            Each one represents a learning experience and a step forward in my development journey. More to come...
           </p>
         </div>
       </section>
@@ -151,6 +135,35 @@ export default function Projects() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Social Links Section */}
+      <section className="py-16 px-6 relative">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-2xl font-bold text-white mb-8 font-mono">
+            &lt;Connect_With_Me&gt;
+          </h2>
+          <div className="flex justify-center items-center gap-8">
+            <a 
+              href="https://github.com/matthewli10" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-2 bg-slate-800/50 px-6 py-3 rounded-lg text-slate-300 hover:text-cyan-400 transition-all duration-300 border border-cyan-400/30 hover:border-cyan-400/60 hover:shadow-lg hover:shadow-cyan-500/25"
+            >
+              <Github className="w-6 h-6 group-hover:scale-110 transition-transform" />
+              <span className="font-mono">GitHub</span>
+            </a>
+            <a
+              href="https://linkedin.com/in/matthewli15" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-2 bg-slate-800/50 px-6 py-3 rounded-lg text-slate-300 hover:text-cyan-400 transition-all duration-300 border border-cyan-400/30 hover:border-cyan-400/60 hover:shadow-lg hover:shadow-cyan-500/25"
+            >
+              <Linkedin className="w-6 h-6 group-hover:scale-110 transition-transform" />
+              <span className="font-mono">LinkedIn</span>
+            </a>
           </div>
         </div>
       </section>

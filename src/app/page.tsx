@@ -156,7 +156,7 @@ export default function Home() {
           </h2>
           <div className="flex justify-center items-center gap-8">
             <a 
-              href="https://github.com/yourusername" 
+              href="https://github.com/matthewli10" 
               target="_blank" 
               rel="noopener noreferrer"
               className="group flex items-center gap-2 bg-slate-800/50 px-6 py-3 rounded-lg text-slate-300 hover:text-cyan-400 transition-all duration-300 border border-cyan-400/30 hover:border-cyan-400/60 hover:shadow-lg hover:shadow-cyan-500/25"

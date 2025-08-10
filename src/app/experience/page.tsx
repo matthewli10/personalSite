@@ -1,41 +1,32 @@
 import Link from "next/link";
-import { ArrowLeft, Calendar, MapPin, Building, Code, Cpu } from "lucide-react";
+import { ArrowLeft, Calendar, MapPin, Building, Github, Linkedin } from "lucide-react";
 
 const experiences = [
   {
     company: "Advanced Micro Devices (AMD)",
     position: "Software Engineering Intern",
-    location: "Santa Clara, CA",
-    duration: "May 2024 - Aug 2024",
+    location: "Austin, TX",
+    duration: "Jun 2025 - Present",
     description: "Developed and optimized performance-critical software for AMD's next-generation processors. Worked on low-level system programming and performance optimization for CPU architectures.",
-    technologies: ["C++", "Python", "Assembly", "Linux", "Performance Optimization"],
+    technologies: ["AWS EC2", "Python", "Assembly", "Linux", "Performance Optimization"],
     featured: true
   },
   {
     company: "Tesla",
     position: "Software Engineering Intern",
     location: "Fremont, CA",
-    duration: "May 2023 - Aug 2023",
+    duration: "Jan 2025 - Jun 2025",
     description: "Contributed to Tesla's autonomous driving software stack. Implemented computer vision algorithms and worked on real-time data processing for vehicle safety systems.",
-    technologies: ["Python", "C++", "Computer Vision", "Machine Learning", "ROS"],
+    technologies: ["Python", "Linear Programming", "MySQL", "Apache Airflow", "SQL"],
     featured: true
   },
   {
     company: "Genentech",
-    position: "Data Science Intern",
+    position: "Data Engineer Intern",
     location: "South San Francisco, CA",
-    duration: "May 2022 - Aug 2022",
-    description: "Developed data pipelines and machine learning models for drug discovery. Worked with large-scale genomic datasets and implemented statistical analysis tools.",
-    technologies: ["Python", "R", "SQL", "Machine Learning", "Bioinformatics"],
-    featured: false
-  },
-  {
-    company: "UC Santa Barbara",
-    position: "Research Assistant",
-    location: "Santa Barbara, CA",
-    duration: "Sep 2023 - Present",
-    description: "Conducting research in distributed systems and cloud computing. Developing scalable architectures for data processing and implementing novel algorithms.",
-    technologies: ["Java", "Python", "Docker", "Kubernetes", "Distributed Systems"],
+    duration: "Jun 2024 - Sep 2024",
+    description: "Built large-scale data pipelines processing 15M+ SAP BW records into Snowflake, powering 20+ data products and business reports. Optimized SQL queries and used AWS Glue, Athena, and PySpark to handle 300K+ daily transactions, reducing processing time by 15%. Developed an AI chatbot using RAG and Azure OpenAI to help 100+ interns quickly access SAP data flows and mapping requirements.",
+    technologies: ["Python", "PySpark", "SQL", "Spark SQL", "Snowflake", "AWS Glue", "AWS Lambda", "AWS S3", "AWS Redshift", "AWS Athena", "Retrieval-Augmented Generation (RAG)"],
     featured: false
   }
 ];
@@ -89,7 +80,7 @@ export default function Experience() {
             <span className="text-purple-300">.log</span>
           </h1>
           <p className="text-xl text-slate-300 max-w-2xl font-mono">
-            <span className="text-cyan-400">//</span> My professional journey and work experience across various companies and technologies.
+            <span className="text-cyan-400">//</span> My professional journey and work experience across various companies and industries.
           </p>
         </div>
       </section>
@@ -153,46 +144,31 @@ export default function Experience() {
         </div>
       </section>
 
-      {/* Skills Summary */}
-      <section className="py-16 px-6 bg-slate-800/30 backdrop-blur-sm border-t border-b border-cyan-400/20">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl font-bold text-white mb-8 text-center font-mono">
-            &lt;Technical_Skills&gt;
+      {/* Social Links Section */}
+      <section className="py-16 px-6 relative">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-2xl font-bold text-white mb-8 font-mono">
+            &lt;Connect_With_Me&gt;
           </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-slate-800/50 rounded-lg p-6 border border-cyan-400/30">
-              <h3 className="text-lg font-bold text-white mb-4 font-mono flex items-center gap-2">
-                <Code className="w-5 h-5 text-cyan-400" />
-                Programming
-              </h3>
-              <div className="space-y-2 text-slate-300 font-mono text-sm">
-                <div>• Python, C++, Java, JavaScript</div>
-                <div>• TypeScript, Go, Rust</div>
-                <div>• Assembly, SQL, R</div>
-              </div>
-            </div>
-            <div className="bg-slate-800/50 rounded-lg p-6 border border-cyan-400/30">
-              <h3 className="text-lg font-bold text-white mb-4 font-mono flex items-center gap-2">
-                <Cpu className="w-5 h-5 text-purple-400" />
-                Technologies
-              </h3>
-              <div className="space-y-2 text-slate-300 font-mono text-sm">
-                <div>• Docker, Kubernetes, AWS</div>
-                <div>• React, Node.js, Next.js</div>
-                <div>• Machine Learning, Computer Vision</div>
-              </div>
-            </div>
-            <div className="bg-slate-800/50 rounded-lg p-6 border border-cyan-400/30">
-              <h3 className="text-lg font-bold text-white mb-4 font-mono flex items-center gap-2">
-                <Building className="w-5 h-5 text-green-400" />
-                Domains
-              </h3>
-              <div className="space-y-2 text-slate-300 font-mono text-sm">
-                <div>• Performance Optimization</div>
-                <div>• Distributed Systems</div>
-                <div>• Bioinformatics, Autonomous Systems</div>
-              </div>
-            </div>
+          <div className="flex justify-center items-center gap-8">
+            <a 
+              href="https://github.com/matthewli10" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-2 bg-slate-800/50 px-6 py-3 rounded-lg text-slate-300 hover:text-cyan-400 transition-all duration-300 border border-cyan-400/30 hover:border-cyan-400/60 hover:shadow-lg hover:shadow-cyan-500/25"
+            >
+              <Github className="w-6 h-6 group-hover:scale-110 transition-transform" />
+              <span className="font-mono">GitHub</span>
+            </a>
+            <a
+              href="https://linkedin.com/in/matthewli15" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-2 bg-slate-800/50 px-6 py-3 rounded-lg text-slate-300 hover:text-cyan-400 transition-all duration-300 border border-cyan-400/30 hover:border-cyan-400/60 hover:shadow-lg hover:shadow-cyan-500/25"
+            >
+              <Linkedin className="w-6 h-6 group-hover:scale-110 transition-transform" />
+              <span className="font-mono">LinkedIn</span>
+            </a>
           </div>
         </div>
       </section>
