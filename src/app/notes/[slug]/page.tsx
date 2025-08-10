@@ -5,8 +5,8 @@ import { ArrowLeft, Calendar, Clock, Github, Linkedin, Mail } from "lucide-react
 const getNoteBySlug = (slug: string) => {
   const notes = [
     {
-      title: "My Top Songs",
-      excerpt: "A collection of my favorite songs, current and past.",
+      title: "favorite songs",
+      excerpt: "a collection of my favorite songs, current and past",
       content: `
         <p>So Into You - Tamia</p>
         <p>Self Control - Frank Ocean</p>
@@ -16,12 +16,51 @@ const getNoteBySlug = (slug: string) => {
         <p>Until I Found You - Stephen Sanchez</p>
    
         <hr style="margin: 2rem 0; border: none; border-top: 1px solid #475569;">
-        <p style="font-size: 0.875rem; color: #94a3b8; margin: 0;">Last updated: January 15, 2025</p>
+        <p style="font-size: 0.875rem; color: #94a3b8; margin: 0;">Last updated: August 10, 2025</p>
       `,
-      date: "2025-01-15",
-      readTime: "2 min read",
-      slug: "my-top-songs",
+      date: "2025-03-15",
+      readTime: "1 min read",
+      slug: "favorite-songs",
       featured: false
+    },
+    {
+      title: "what i learned from my internships",
+      excerpt: "key takeaways and lessons learned",
+      content: `
+        <p style="margin-bottom: 0.8rem;">over the past few years, i've had the opportunity to intern at AMD, Tesla, and Genentech. each experience
+        was unique, not just tehcnically, but also in the work culture, expectations, and ways teams operated.</p>
+
+        <p style="margin-bottom: 0.8rem;">one of the biggest lessons i learned is that soft skills are just as important as technical skills. 
+        clear communication, collaboration, and adaptability. writing clean clode or designing scalable systems
+        will always be core to the job, but the ability to adapt to a team's culture can determine how quickly you ramp up and how effectively
+        you deliver.</p>
+
+        <p style="margin-bottom: 0.8rem;">at both AMD and Tesla, the environment was fast-paced, iterative, and sometimes chaotic. i often
+        had to figure things out with minimal guidance. adapting meant changing now only how i worked, but how i communicated.</p>
+
+        <p style="margin-bottom: 0.8rem;">that leads into another key takeaway—you have to keep reaching out to move your project forward.
+        waiting for information to come to you can stall progress. i learned that persitence (without being pushy) is essential. often, 
+        the difference between being blocked for a week versus an afternoon was a single message or meeting.</p>
+
+        <p style="margin-bottom: 0.8rem;">i also learned the importance of context switching and prioritization. in my experiences, 
+        i've juggled multiple sub-projects, each with different stakeholders and deadlines. being able to keep long-term goals in focus, was
+        a skill i had to acvitely develop.</p>
+
+        <p style="margin-bottom: 0.8rem;">finally, building relationships matter. taking time to connect with teammates, fellow interns-whether 
+        through technical discussions, casual chats, or team events-built trust and made collaboration smoother. People are more willing 
+        to help and share knowledge when you've built a genuine connection, and these relationships often extend beyond the internship, expanding 
+        your professional network and opening doors to future opportunities.</p>
+
+        <p style="margin-bottom: 0.8rem;">every company will have its own culture, pace, and processes. the commond thread is that 
+        success depends not just on what you can build, but on how you navigate the people, systems, and environment around you.</p>
+
+        <hr style="margin: 2rem 0; border: none; border-top: 1px solid #475569;">
+        <p style="font-size: 0.875rem; color: #94a3b8; margin: 0;">Last updated: August 11, 2025</p>
+      `,
+      date: "2025-08-12",
+      readTime: "3 min read",
+      slug: "what-i-learned-from-my-internships",
+      featured: true
     }
   ];
   

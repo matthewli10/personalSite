@@ -2,14 +2,22 @@ import Link from "next/link";
 import { ArrowLeft, Calendar, Clock, FileText, Github, Linkedin, Mail } from "lucide-react";
 
 const notes = [
-  {
-    title: "My Top Songs",
-    excerpt: "A collection of my favorite songs, current and past.",
-    date: "2025-01-15",
-    readTime: "2 min read",
-    slug: "my-top-songs",
+    {
+    title: "what i learned from my internships",
+    excerpt: "key takeaways and lessons learned from my past internships",
+    date: "2025-08-12",
+    readTime: "3 min read",
+    slug: "what-i-learned-from-my-internships",
     featured: false
-  }
+    },
+    {
+    title: "favorite songs",
+    excerpt: "a collection of my favorite songs, current and past",
+    date: "2025-03-15",
+    readTime: "1 min read",
+    slug: "favorite-songs",
+    featured: false
+    }
 ];
 
 export default function Notes() {
