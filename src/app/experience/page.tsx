@@ -4,28 +4,31 @@ import { ArrowLeft, Calendar, MapPin, Building, Github, Linkedin, Mail } from "l
 const experiences = [
   {
     company: "Advanced Micro Devices (AMD)",
+    companySlug: "amd",
     position: "Software Engineering Intern",
     location: "Austin, TX",
     duration: "Jun 2025 - Present",
-    description: "Developed and optimized performance-critical software for AMD's next-generation processors. Worked on low-level system programming and performance optimization for CPU architectures.",
-    technologies: ["AWS EC2", "Python", "Assembly", "Linux", "Performance Optimization"],
+    description: "Working on software automation for CPU and GPU failure analysis",
+    technologies: ["AWS EC2", "Python", "MongoDB", "Snowflake", "Shell Scripting"],
     featured: true
   },
   {
     company: "Tesla",
+    companySlug: "tesla",
     position: "Software Engineering Intern",
     location: "Fremont, CA",
     duration: "Jan 2025 - Jun 2025",
-    description: "Contributed to Tesla's autonomous driving software stack. Implemented computer vision algorithms and worked on real-time data processing for vehicle safety systems.",
+    description: "Developed software optimization and data pipelines for finished vehicles and carrier routing",
     technologies: ["Python", "Linear Programming", "MySQL", "Apache Airflow", "SQL"],
     featured: true
   },
   {
     company: "Genentech",
+    companySlug: "genentech",
     position: "Data Engineer Intern",
     location: "South San Francisco, CA",
     duration: "Jun 2024 - Sep 2024",
-    description: "Built large-scale data pipelines processing 15M+ SAP BW records into Snowflake, powering 20+ data products and business reports. Optimized SQL queries and used AWS Glue, Athena, and PySpark to handle 300K+ daily transactions, reducing processing time by 15%. Developed an AI chatbot using RAG and Azure OpenAI to help 100+ interns quickly access SAP data flows and mapping requirements.",
+    description: "Built large-scale data pipelines for data products and internal AI chatbot using RAG",
     technologies: ["Python", "PySpark", "SQL", "Spark SQL", "Snowflake", "AWS Glue", "AWS Lambda", "AWS S3", "AWS Redshift", "AWS Athena", "Retrieval-Augmented Generation (RAG)"],
     featured: false
   }
@@ -137,6 +140,17 @@ export default function Experience() {
                       {tech}
                     </span>
                   ))}
+                </div>
+                
+                {/* Read More Button */}
+                <div className="mt-6">
+                  <Link 
+                    href={`/experience/${exp.companySlug}`}
+                    className="flex items-center gap-2 text-slate-300 hover:text-cyan-400 transition-colors group font-mono text-sm"
+                  >
+                    <span className="group-hover:underline">Read More</span>
+                    <span className="text-lg transition-transform group-hover:translate-x-1">→</span>
+                  </Link>
                 </div>
               </div>
             ))}
