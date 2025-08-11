@@ -1,6 +1,8 @@
 # Matthew Li - Personal Website
 
-Personal website built with Next.js 15, TypeScript, and Tailwind CSS. Features interactive componentsvand sections for my experience, projects, and notes.
+Personal website built with Next.js 15, TypeScript, and Tailwind CSS. Features interactive components and sections for my experience, projects, and notes.
+
+**[🌐 Visit Site](https://matthewlii.com)**
 
 ## How I Built It
 
