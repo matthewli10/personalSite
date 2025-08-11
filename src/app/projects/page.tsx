@@ -12,7 +12,7 @@ const projects = [
   },
   {
     title: "Personal Website",
-    description: "A modern personal website built with Next.js, TypeScript, and Tailwind CSS. Features my past and current experienecs and projects. ",
+    description: "A personal website built with Next.js, TypeScript, and Tailwind CSS. Features my past and current experienecs and projects. ",
     technologies: ["Next.js", "TypeScript", "Tailwind CSS", "MDX"],
     github: "https://github.com/matthewli10/personalSite",
     live: null,
