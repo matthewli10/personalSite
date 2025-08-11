@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Matthew Li - Personal Website",
-  description: "Welcome to my personal website. I'm a developer passionate about creating meaningful digital experiences.",
+  description: "Welcome to my personal website. I&apos;m a developer, passionate about leveraging data and technology to solve real-world challenges.",
 };
 
 export default function RootLayout({

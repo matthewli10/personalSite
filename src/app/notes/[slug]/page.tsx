@@ -27,12 +27,12 @@ const getNoteBySlug = (slug: string) => {
       title: "what i learned from my internships",
       excerpt: "key takeaways and lessons learned",
       content: `
-        <p style="margin-bottom: 0.8rem;">over the past few years, i've had the opportunity to intern at AMD, Tesla, and Genentech. each experience
+        <p style="margin-bottom: 0.8rem;">over the past few years, i&apos;ve had the opportunity to intern at AMD, Tesla, and Genentech. each experience
         was unique, not just tehcnically, but also in the work culture, expectations, and ways teams operated.</p>
 
         <p style="margin-bottom: 0.8rem;">one of the biggest lessons i learned is that soft skills are just as important as technical skills. 
         clear communication, collaboration, and adaptability. writing clean clode or designing scalable systems
-        will always be core to the job, but the ability to adapt to a team's culture can determine how quickly you ramp up and how effectively
+        will always be core to the job, but the ability to adapt to a team&apos;s culture can determine how quickly you ramp up and how effectively
         you deliver.</p>
 
         <p style="margin-bottom: 0.8rem;">at both AMD and Tesla, the environment was fast-paced, iterative, and sometimes chaotic. i often
@@ -43,12 +43,12 @@ const getNoteBySlug = (slug: string) => {
         the difference between being blocked for a week versus an afternoon was a single message or meeting.</p>
 
         <p style="margin-bottom: 0.8rem;">i also learned the importance of context switching and prioritization. in my experiences, 
-        i've juggled multiple sub-projects, each with different stakeholders and deadlines. being able to keep long-term goals in focus, was
+        i&apos;ve juggled multiple sub-projects, each with different stakeholders and deadlines. being able to keep long-term goals in focus, was
         a skill i had to acvitely develop.</p>
 
         <p style="margin-bottom: 0.8rem;">finally, building relationships matter. taking time to connect with teammates, fellow interns-whether 
         through technical discussions, casual chats, or team events-built trust and made collaboration smoother. People are more willing 
-        to help and share knowledge when you've built a genuine connection, and these relationships often extend beyond the internship, expanding 
+        to help and share knowledge when you&apos;ve built a genuine connection, and these relationships often extend beyond the internship, expanding 
         your professional network and opening doors to future opportunities.</p>
 
         <p style="margin-bottom: 0.8rem;">every company will have its own culture, pace, and processes. the commond thread is that 
@@ -67,8 +67,9 @@ const getNoteBySlug = (slug: string) => {
   return notes.find(note => note.slug === slug);
 };
 
-export default function NotePage({ params }: { params: { slug: string } }) {
-  const note = getNoteBySlug(params.slug);
+export default async function NotePage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const note = getNoteBySlug(slug);
   
   if (!note) {
     return (
@@ -76,7 +77,7 @@ export default function NotePage({ params }: { params: { slug: string } }) {
         <div className="pt-32 pb-16 px-6 relative">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl font-bold text-white mb-6 font-mono">Note Not Found</h1>
-            <p className="text-slate-300 mb-8 font-mono">The note you're looking for doesn't exist.</p>
+            <p className="text-slate-300 mb-8 font-mono">The note you&apos;re looking for doesn&apos;t exist.</p>
             <Link 
               href="/notes"
               className="inline-flex items-center gap-2 bg-cyan-500 text-white px-6 py-3 rounded-lg font-mono font-semibold hover:bg-cyan-600 transition-all duration-300"

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowLeft, Calendar, MapPin, Building, Github, Linkedin, Mail, ExternalLink } from "lucide-react";
+import { ArrowLeft, Calendar, MapPin, Building, Github, Linkedin, Mail } from "lucide-react";
 
 // This would typically come from a database or CMS
 const getExperienceByCompany = (companySlug: string) => {
@@ -66,7 +66,7 @@ export default async function ExperienceDetail({ params }: { params: Promise<{ c
         <div className="pt-32 pb-16 px-6 relative">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl font-bold text-white mb-6 font-mono">Experience Not Found</h1>
-            <p className="text-slate-300 mb-8 font-mono">The experience you're looking for doesn't exist.</p>
+            <p className="text-slate-300 mb-8 font-mono">The experience you&apos;re looking for doesn&apos;t exist.</p>
             <Link 
               href="/experience"
               className="inline-flex items-center gap-2 bg-cyan-500 text-white px-6 py-3 rounded-lg font-mono font-semibold hover:bg-cyan-600 transition-all duration-300"

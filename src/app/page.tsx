@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Github, Linkedin, Code, Cpu, Zap, Mail } from "lucide-react";
+import { ArrowRight, Github, Linkedin, Code, Cpu, Mail } from "lucide-react";
 
 export default function Home() {
   return (
@@ -46,7 +46,7 @@ export default function Home() {
             
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 font-mono">
               <span className="bg-gradient-to-r from-cyan-400 via-purple-300 to-cyan-400 bg-clip-text text-transparent">
-                I'm Matthew
+                I&apos;m Matthew
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto leading-relaxed font-mono">
@@ -79,13 +79,13 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
               <p className="text-lg text-slate-300 leading-relaxed mb-6 font-mono">
-                <span className="text-cyan-400">// 4th year CS major at UC Santa Barbara ('26)</span>
+                <span className="text-cyan-400">{'// 4th year CS major at UC Santa Barbara (\'26)'}</span>
                 <br />
                 Focused on backend, data platforms, and AI systems. 
                 Shipped optimization and infrastructure at AMD, Tesla, and Genentech.
               </p>
               <p className="text-lg text-slate-300 leading-relaxed mb-6 font-mono">
-                <span className="text-purple-400">// When not coding...</span>
+                <span className="text-purple-400">{'// When not coding...'}</span>
                 <br />
                 Keeping up with tech trends, following stock market, exploring restaurants, or playing sports.
               </p>

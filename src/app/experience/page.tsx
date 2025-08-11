@@ -83,7 +83,7 @@ export default function Experience() {
             <span className="text-purple-300">.log</span>
           </h1>
           <p className="text-xl text-slate-300 max-w-2xl font-mono">
-            <span className="text-cyan-400">//</span> My professional journey and work experience across various companies and industries.
+            <span className="text-cyan-400">{'//'}</span> My professional journey and work experience across various companies and industries.
           </p>
         </div>
       </section>

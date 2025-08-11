@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowLeft, ExternalLink, Github, Code, Terminal, Linkedin, Mail } from "lucide-react";
+import { ArrowLeft, ExternalLink, Github, Linkedin, Mail } from "lucide-react";
 
 const projects = [
   {
@@ -77,7 +77,7 @@ export default function Projects() {
             <span className="text-purple-300">.exe</span>
           </h1>
           <p className="text-xl text-slate-300 max-w-2xl font-mono">
-            <span className="text-cyan-400">//</span> Here are some projects I've worked on. 
+            <span className="text-cyan-400">{'//'}</span> Here are some projects I&apos;ve worked on. 
             Each one represents a learning experience and a step forward in my development journey. More to come...
           </p>
         </div>

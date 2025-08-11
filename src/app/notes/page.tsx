@@ -69,7 +69,7 @@ export default function Notes() {
             <span className="text-purple-300">.txt</span>
           </h1>
           <p className="text-xl text-slate-300 max-w-2xl font-mono">
-            <span className="text-cyan-400">//</span> Personal thoughts and random musings 
+            <span className="text-cyan-400">{'//'}</span> Personal thoughts and random musings 
             about the things I enjoy and discover. More to come...
           </p>
         </div>
