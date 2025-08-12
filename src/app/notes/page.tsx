@@ -4,8 +4,8 @@ import { ArrowLeft, Calendar, Clock, FileText, Github, Linkedin, Mail } from "lu
 const notes = [
     {
     title: "what i learned from my internships",
-    excerpt: "key takeaways and lessons learned from my past internships",
-    date: "2025-08-12",
+    excerpt: "key takeaways and lessons learned from my past and current internships",
+    date: "2025-08-9",
     readTime: "3 min read",
     slug: "what-i-learned-from-my-internships",
     featured: false

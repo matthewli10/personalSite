@@ -31,7 +31,7 @@ const getNoteBySlug = (slug: string) => {
         was unique, not just tehcnically, but also in the work culture, expectations, and ways teams operated.</p>
 
         <p style="margin-bottom: 0.8rem;">one of the biggest lessons i learned is that soft skills are just as important as technical skills. 
-        clear communication, collaboration, and adaptability. writing clean clode or designing scalable systems
+        clear communication, collaboration, and adaptability. writing clean code or designing scalable systems
         will always be core to the job, but the ability to adapt to a team&apos;s culture can determine how quickly you ramp up and how effectively
         you deliver.</p>
 
@@ -57,7 +57,7 @@ const getNoteBySlug = (slug: string) => {
         <hr style="margin: 2rem 0; border: none; border-top: 1px solid #475569;">
         <p style="font-size: 0.875rem; color: #94a3b8; margin: 0;">Last updated: August 11, 2025</p>
       `,
-      date: "2025-08-12",
+      date: "2025-08-9",
       readTime: "3 min read",
       slug: "what-i-learned-from-my-internships",
       featured: true
