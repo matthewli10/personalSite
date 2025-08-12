@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
-import { ArrowLeft, Calendar, Clock, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowLeft, Calendar, Clock, Github, Linkedin, Mail, Menu, X } from "lucide-react";
+import { useState } from "react";
 
 // This would typically come from a database or CMS
 const getNoteBySlug = (slug: string) => {
@@ -8,12 +11,12 @@ const getNoteBySlug = (slug: string) => {
       title: "favorite songs",
       excerpt: "a collection of my favorite songs, current and past",
       content: `
-        <p>So Into You - Tamia</p>
-        <p>Self Control - Frank Ocean</p>
-        <p>Yellow - Coldplay</p>
-        <p>Brazil - Declan McKenna</p>
-        <p>Over My Dead Body - Drake</p>
-        <p>Until I Found You - Stephen Sanchez</p>
+        <p class="text-slate-200">So Into You - Tamia</p>
+        <p class="text-slate-200">Self Control - Frank Ocean</p>
+        <p class="text-slate-200">Yellow - Coldplay</p>
+        <p class="text-slate-200">Brazil - Declan McKenna</p>
+        <p class="text-slate-200">Over My Dead Body - Drake</p>
+        <p class="text-slate-200">Until I Found You - Stephen Sanchez</p>
    
         <hr style="margin: 2rem 0; border: none; border-top: 1px solid #475569;">
         <p style="font-size: 0.875rem; color: #94a3b8; margin: 0;">Last updated: August 10, 2025</p>
@@ -27,37 +30,37 @@ const getNoteBySlug = (slug: string) => {
       title: "what i learned from my internships",
       excerpt: "key takeaways and lessons learned",
       content: `
-        <p style="margin-bottom: 0.8rem;">over the past few years, i&apos;ve had the opportunity to intern at AMD, Tesla, and Genentech. each experience
+        <p class="text-slate-200" style="margin-bottom: 0.8rem;">over the past few years, i&apos;ve had the opportunity to intern at AMD, Tesla, and Genentech. each experience
         was unique, not just tehcnically, but also in the work culture, expectations, and ways teams operated.</p>
 
-        <p style="margin-bottom: 0.8rem;">one of the biggest lessons i learned is that soft skills are just as important as technical skills. 
-        clear communication, collaboration, and adaptability. writing clean code or designing scalable systems
+        <p class="text-slate-200" style="margin-bottom: 0.8rem;">one of the biggest lessons i learned is that soft skills are just as important as technical skills. 
+        clear communication, collaboration, and adaptability. writing clean clode or designing scalable systems
         will always be core to the job, but the ability to adapt to a team&apos;s culture can determine how quickly you ramp up and how effectively
         you deliver.</p>
 
-        <p style="margin-bottom: 0.8rem;">at both AMD and Tesla, the environment was fast-paced, iterative, and sometimes chaotic. i often
+        <p class="text-slate-200" style="margin-bottom: 0.8rem;">at both AMD and Tesla, the environment was fast-paced, iterative, and sometimes chaotic. i often
         had to figure things out with minimal guidance. adapting meant changing now only how i worked, but how i communicated.</p>
 
-        <p style="margin-bottom: 0.8rem;">that leads into another key takeaway—you have to keep reaching out to move your project forward.
+        <p class="text-slate-200" style="margin-bottom: 0.8rem;">that leads into another key takeaway—you have to keep reaching out to move your project forward.
         waiting for information to come to you can stall progress. i learned that persitence (without being pushy) is essential. often, 
         the difference between being blocked for a week versus an afternoon was a single message or meeting.</p>
 
-        <p style="margin-bottom: 0.8rem;">i also learned the importance of context switching and prioritization. in my experiences, 
+        <p class="text-slate-200" style="margin-bottom: 0.8rem;">i also learned the importance of context switching and prioritization. in my experiences, 
         i&apos;ve juggled multiple sub-projects, each with different stakeholders and deadlines. being able to keep long-term goals in focus, was
         a skill i had to acvitely develop.</p>
 
-        <p style="margin-bottom: 0.8rem;">finally, building relationships matter. taking time to connect with teammates, fellow interns-whether 
+        <p class="text-slate-200" style="margin-bottom: 0.8rem;">finally, building relationships matter. taking time to connect with teammates, fellow interns-whether 
         through technical discussions, casual chats, or team events-built trust and made collaboration smoother. People are more willing 
         to help and share knowledge when you&apos;ve built a genuine connection, and these relationships often extend beyond the internship, expanding 
         your professional network and opening doors to future opportunities.</p>
 
-        <p style="margin-bottom: 0.8rem;">every company will have its own culture, pace, and processes. the commond thread is that 
+        <p class="text-slate-200" style="margin-bottom: 0.8rem;">every company will have its own culture, pace, and processes. the commond thread is that 
         success depends not just on what you can build, but on how you navigate the people, systems, and environment around you.</p>
 
         <hr style="margin: 2rem 0; border: none; border-top: 1px solid #475569;">
         <p style="font-size: 0.875rem; color: #94a3b8; margin: 0;">Last updated: August 11, 2025</p>
       `,
-      date: "2025-08-9",
+      date: "2025-08-12",
       readTime: "3 min read",
       slug: "what-i-learned-from-my-internships",
       featured: true
@@ -74,7 +77,7 @@ export default async function NotePage({ params }: { params: Promise<{ slug: str
   if (!note) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">
-        <div className="pt-32 pb-16 px-6 relative">
+        <div className="pt-32 pb-16 px-4 md:px-6 relative">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl font-bold text-white mb-6 font-mono">Note Not Found</h1>
             <p className="text-slate-300 mb-8 font-mono">The note you&apos;re looking for doesn&apos;t exist.</p>
@@ -103,9 +106,9 @@ export default async function NotePage({ params }: { params: Promise<{ slug: str
 
       {/* Navigation */}
       <nav className="fixed top-0 w-full bg-slate-900/80 backdrop-blur-md border-b border-cyan-400/20 z-50">
-        <div className="max-w-4xl mx-auto px-6 py-4">
+        <div className="max-w-4xl mx-auto px-4 md:px-6 py-4">
           <div className="flex items-center justify-between">
-            <Link href="/" className="text-xl font-bold text-cyan-400 font-mono tracking-wider">
+            <Link href="/" className="text-lg md:text-xl font-bold text-cyan-400 font-mono tracking-wider">
               &lt;Matthew_Li/&gt;
             </Link>
             <div className="flex items-center space-x-6">
@@ -124,7 +127,7 @@ export default async function NotePage({ params }: { params: Promise<{ slug: str
       </nav>
 
       {/* Article Content */}
-      <section className="pt-32 pb-16 px-6 relative">
+      <section className="pt-32 pb-16 px-4 md:px-6 relative">
         <div className="max-w-4xl mx-auto relative z-10">
           <Link 
             href="/notes" 
@@ -134,10 +137,10 @@ export default async function NotePage({ params }: { params: Promise<{ slug: str
             &lt; Back to notes
           </Link>
           
-          <article className="bg-slate-800/50 backdrop-blur-sm rounded-lg p-8 border border-cyan-400/30">
+          <article className="bg-slate-800/50 backdrop-blur-sm rounded-lg p-4 md:p-8 border border-cyan-400/30">
             {/* Article Header */}
             <header className="mb-8">
-              <div className="flex items-center gap-4 mb-4 text-sm text-slate-400 font-mono">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-4 text-sm text-slate-400 font-mono">
                 <div className="flex items-center gap-2">
                   <Calendar className="w-4 h-4" />
                   <span>{new Date(note.date).toLocaleDateString()}</span>
@@ -148,18 +151,18 @@ export default async function NotePage({ params }: { params: Promise<{ slug: str
                 </div>
               </div>
               
-              <h1 className="text-3xl md:text-4xl font-bold text-white mb-4 font-mono">
+              <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 font-mono">
                 {note.title}
               </h1>
               
-              <p className="text-xl text-slate-300 font-mono">
+              <p className="text-lg md:text-xl text-slate-300 font-mono">
                 {note.excerpt}
               </p>
             </header>
             
             {/* Article Content */}
             <div 
-              className="prose prose-invert prose-cyan max-w-none font-mono"
+              className="prose prose-invert prose-cyan max-w-none font-mono [&_p]:text-slate-200 [&_h1]:text-white [&_h2]:text-white [&_h3]:text-white [&_h4]:text-white [&_h5]:text-white [&_h6]:text-white [&_li]:text-slate-200 [&_ul]:text-slate-200 [&_ol]:text-slate-200"
               dangerouslySetInnerHTML={{ __html: note.content }}
             />
           </article>
@@ -167,15 +170,15 @@ export default async function NotePage({ params }: { params: Promise<{ slug: str
       </section>
 
       {/* Social Links Section */}
-      <section className="py-16 px-6 relative">
+      <section className="py-16 px-4 md:px-6 relative">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-2xl font-bold text-white mb-8 font-mono">
             &lt;Connect_With_Me&gt;
           </h2>
-          <div className="flex justify-center items-center gap-8">
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-8">
             <a
               href="mailto:matthewli.rt@gmail.com"
-              className="group flex items-center gap-2 bg-slate-800/50 px-6 py-3 rounded-lg text-slate-300 hover:text-cyan-400 transition-all duration-300 border border-cyan-400/30 hover:border-cyan-400/60 hover:shadow-lg hover:shadow-cyan-500/25"
+              className="w-full sm:w-auto group flex items-center justify-center gap-2 bg-slate-800/50 px-6 py-3 rounded-lg text-slate-300 hover:text-cyan-400 transition-all duration-300 border border-cyan-400/30 hover:border-cyan-400/60 hover:shadow-lg hover:shadow-cyan-500/25"
             >
               <Mail className="w-6 h-6 group-hover:scale-110 transition-transform" />
               <span className="font-mono">Email</span>
@@ -184,7 +187,7 @@ export default async function NotePage({ params }: { params: Promise<{ slug: str
               href="https://linkedin.com/in/matthewli15" 
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-2 bg-slate-800/50 px-6 py-3 rounded-lg text-slate-300 hover:text-cyan-400 transition-all duration-300 border border-cyan-400/30 hover:border-cyan-400/60 hover:shadow-lg hover:shadow-cyan-500/25"
+              className="w-full sm:w-auto group flex items-center justify-center gap-2 bg-slate-800/50 px-6 py-3 rounded-lg text-slate-300 hover:text-cyan-400 transition-all duration-300 border border-cyan-400/30 hover:border-cyan-400/60 hover:shadow-lg hover:shadow-cyan-500/25"
             >
               <Linkedin className="w-6 h-6 group-hover:scale-110 transition-transform" />
               <span className="font-mono">LinkedIn</span>
@@ -193,7 +196,7 @@ export default async function NotePage({ params }: { params: Promise<{ slug: str
               href="https://github.com/matthewli10" 
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-2 bg-slate-800/50 px-6 py-3 rounded-lg text-slate-300 hover:text-cyan-400 transition-all duration-300 border border-cyan-400/30 hover:border-cyan-400/60 hover:shadow-lg hover:shadow-cyan-500/25"
+              className="w-full sm:w-auto group flex items-center justify-center gap-2 bg-slate-800/50 px-6 py-3 rounded-lg text-slate-300 hover:text-cyan-400 transition-all duration-300 border border-cyan-400/30 hover:border-cyan-400/60 hover:shadow-lg hover:shadow-cyan-500/25"
             >
               <Github className="w-6 h-6 group-hover:scale-110 transition-transform" />
               <span className="font-mono">GitHub</span>
@@ -203,7 +206,7 @@ export default async function NotePage({ params }: { params: Promise<{ slug: str
       </section>
 
       {/* Footer */}
-      <footer className="py-8 px-6 border-t border-cyan-400/20 bg-slate-800/30 backdrop-blur-sm">
+      <footer className="py-8 px-4 md:px-6 border-t border-cyan-400/20 bg-slate-800/30 backdrop-blur-sm">
         <div className="max-w-4xl mx-auto text-center text-slate-400 font-mono">
           <p>&copy; 2025 Matthew Li. Built with Next.js and Tailwind CSS.</p>
         </div>
