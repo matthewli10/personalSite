@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
-import { ArrowLeft, ExternalLink, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowLeft, ExternalLink, Github, Linkedin, Mail, Menu, X } from "lucide-react";
+import { useState } from "react";
 
 const projects = [
   {
@@ -29,6 +32,8 @@ const projects = [
 ];
 
 export default function Projects() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">
       {/* Animated background grid */}
@@ -41,12 +46,14 @@ export default function Projects() {
 
       {/* Navigation */}
       <nav className="fixed top-0 w-full bg-slate-900/80 backdrop-blur-md border-b border-cyan-400/20 z-50">
-        <div className="max-w-4xl mx-auto px-6 py-4">
+        <div className="max-w-4xl mx-auto px-4 md:px-6 py-4">
           <div className="flex items-center justify-between">
-            <Link href="/" className="text-xl font-bold text-cyan-400 font-mono tracking-wider">
+            <Link href="/" className="text-lg md:text-xl font-bold text-cyan-400 font-mono tracking-wider">
               &lt;Matthew_Li/&gt;
             </Link>
-            <div className="flex items-center space-x-6">
+            
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center space-x-6">
               <Link href="/experience" className="text-slate-300 hover:text-cyan-400 transition-colors font-mono">
                 [Experience]
               </Link>
@@ -57,12 +64,49 @@ export default function Projects() {
                 [Notes]
               </Link>
             </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              className="md:hidden text-cyan-400 hover:text-cyan-300 transition-colors"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
           </div>
+
+          {/* Mobile Navigation Menu */}
+          {isMobileMenuOpen && (
+            <div className="md:hidden mt-4 pb-4 border-t border-cyan-400/20">
+              <div className="flex flex-col space-y-3 pt-4">
+                <Link 
+                  href="/experience" 
+                  className="text-slate-300 hover:text-cyan-400 transition-colors font-mono py-2"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  [Experience]
+                </Link>
+                <Link 
+                  href="/projects" 
+                  className="text-cyan-400 font-mono py-2"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  [Projects]
+                </Link>
+                <Link 
+                  href="/notes" 
+                  className="text-slate-300 hover:text-cyan-400 transition-colors font-mono py-2"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  [Notes]
+                </Link>
+              </div>
+            </div>
+          )}
         </div>
       </nav>
 
       {/* Header */}
-      <section className="pt-32 pb-16 px-6 relative">
+      <section className="pt-32 pb-16 px-4 md:px-6 relative">
         <div className="max-w-4xl mx-auto relative z-10">
           <Link 
             href="/" 
@@ -72,11 +116,11 @@ export default function Projects() {
             &lt; Back to home
           </Link>
           
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 font-mono">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 font-mono">
             <span className="text-cyan-400">PROJECTS</span>
             <span className="text-purple-300">.exe</span>
           </h1>
-          <p className="text-xl text-slate-300 max-w-2xl font-mono">
+          <p className="text-lg md:text-xl text-slate-300 max-w-2xl font-mono">
             <span className="text-cyan-400">{'//'}</span> Here are some projects I&apos;ve worked on. 
             Each one represents a learning experience and a step forward in my development journey. More to come...
           </p>
@@ -84,13 +128,13 @@ export default function Projects() {
       </section>
 
       {/* Projects Grid */}
-      <section className="pb-16 px-6">
+      <section className="pb-16 px-4 md:px-6">
         <div className="max-w-4xl mx-auto">
           <div className="grid gap-8">
             {projects.map((project, index) => (
               <div 
                 key={index}
-                className={`bg-slate-800/50 backdrop-blur-sm rounded-lg p-8 border border-cyan-400/30 hover:border-cyan-400/60 transition-all duration-300 hover:scale-[1.02] ${
+                className={`bg-slate-800/50 backdrop-blur-sm rounded-lg p-4 md:p-8 border border-cyan-400/30 hover:border-cyan-400/60 transition-all duration-300 hover:scale-[1.02] ${
                   project.featured ? 'ring-2 ring-cyan-400/30 shadow-lg shadow-cyan-500/25' : ''
                 }`}
               >
@@ -148,15 +192,15 @@ export default function Projects() {
       </section>
 
       {/* Social Links Section */}
-      <section className="py-16 px-6 relative">
+      <section className="py-16 px-4 md:px-6 relative">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-2xl font-bold text-white mb-8 font-mono">
             &lt;Connect_With_Me&gt;
           </h2>
-          <div className="flex justify-center items-center gap-8">
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-8">
             <a
               href="mailto:matthewli.rt@gmail.com"
-              className="group flex items-center gap-2 bg-slate-800/50 px-6 py-3 rounded-lg text-slate-300 hover:text-cyan-400 transition-all duration-300 border border-cyan-400/30 hover:border-cyan-400/60 hover:shadow-lg hover:shadow-cyan-500/25"
+              className="w-full sm:w-auto group flex items-center justify-center gap-2 bg-slate-800/50 px-6 py-3 rounded-lg text-slate-300 hover:text-cyan-400 transition-all duration-300 border border-cyan-400/30 hover:border-cyan-400/60 hover:shadow-lg hover:shadow-cyan-500/25"
             >
               <Mail className="w-6 h-6 group-hover:scale-110 transition-transform" />
               <span className="font-mono">Email</span>
@@ -165,7 +209,7 @@ export default function Projects() {
               href="https://linkedin.com/in/matthewli15" 
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-2 bg-slate-800/50 px-6 py-3 rounded-lg text-slate-300 hover:text-cyan-400 transition-all duration-300 border border-cyan-400/30 hover:border-cyan-400/60 hover:shadow-lg hover:shadow-cyan-500/25"
+              className="w-full sm:w-auto group flex items-center justify-center gap-2 bg-slate-800/50 px-6 py-3 rounded-lg text-slate-300 hover:text-cyan-400 transition-all duration-300 border border-cyan-400/30 hover:border-cyan-400/60 hover:shadow-lg hover:shadow-cyan-500/25"
             >
               <Linkedin className="w-6 h-6 group-hover:scale-110 transition-transform" />
               <span className="font-mono">LinkedIn</span>
@@ -174,7 +218,7 @@ export default function Projects() {
               href="https://github.com/matthewli10" 
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-2 bg-slate-800/50 px-6 py-3 rounded-lg text-slate-300 hover:text-cyan-400 transition-all duration-300 border border-cyan-400/30 hover:border-cyan-400/60 hover:shadow-lg hover:shadow-cyan-500/25"
+              className="w-full sm:w-auto group flex items-center justify-center gap-2 bg-slate-800/50 px-6 py-3 rounded-lg text-slate-300 hover:text-cyan-400 transition-all duration-300 border border-cyan-400/30 hover:border-cyan-400/60 hover:shadow-lg hover:shadow-cyan-500/25"
             >
               <Github className="w-6 h-6 group-hover:scale-110 transition-transform" />
               <span className="font-mono">GitHub</span>
@@ -184,7 +228,7 @@ export default function Projects() {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 px-6 border-t border-cyan-400/20 bg-slate-800/30 backdrop-blur-sm">
+      <footer className="py-8 px-4 md:px-6 border-t border-cyan-400/20 bg-slate-800/30 backdrop-blur-sm">
         <div className="max-w-4xl mx-auto text-center text-slate-400 font-mono">
           <p>&copy; 2025 Matthew Li. Built with Next.js and Tailwind CSS.</p>
         </div>

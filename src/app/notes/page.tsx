@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
-import { ArrowLeft, Calendar, Clock, FileText, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowLeft, Calendar, Clock, FileText, Github, Linkedin, Mail, Menu, X } from "lucide-react";
+import { useState } from "react";
 
 const notes = [
     {
@@ -21,6 +24,8 @@ const notes = [
 ];
 
 export default function Notes() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">
       {/* Animated background grid */}
@@ -33,12 +38,14 @@ export default function Notes() {
 
       {/* Navigation */}
       <nav className="fixed top-0 w-full bg-slate-900/80 backdrop-blur-md border-b border-cyan-400/20 z-50">
-        <div className="max-w-4xl mx-auto px-6 py-4">
+        <div className="max-w-4xl mx-auto px-4 md:px-6 py-4">
           <div className="flex items-center justify-between">
-            <Link href="/" className="text-xl font-bold text-cyan-400 font-mono tracking-wider">
+            <Link href="/" className="text-lg md:text-xl font-bold text-cyan-400 font-mono tracking-wider">
               &lt;Matthew_Li/&gt;
             </Link>
-            <div className="flex items-center space-x-6">
+            
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center space-x-6">
               <Link href="/experience" className="text-slate-300 hover:text-cyan-400 transition-colors font-mono">
                 [Experience]
               </Link>
@@ -49,12 +56,49 @@ export default function Notes() {
                 [Notes]
               </Link>
             </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              className="md:hidden text-cyan-400 hover:text-cyan-300 transition-colors"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
           </div>
+
+          {/* Mobile Navigation Menu */}
+          {isMobileMenuOpen && (
+            <div className="md:hidden mt-4 pb-4 border-t border-cyan-400/20">
+              <div className="flex flex-col space-y-3 pt-4">
+                <Link 
+                  href="/experience" 
+                  className="text-slate-300 hover:text-cyan-400 transition-colors font-mono py-2"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  [Experience]
+                </Link>
+                <Link 
+                  href="/projects" 
+                  className="text-slate-300 hover:text-cyan-400 transition-colors font-mono py-2"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  [Projects]
+                </Link>
+                <Link 
+                  href="/notes" 
+                  className="text-cyan-400 font-mono py-2"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  [Notes]
+                </Link>
+              </div>
+            </div>
+          )}
         </div>
       </nav>
 
       {/* Header */}
-      <section className="pt-32 pb-16 px-6 relative">
+      <section className="pt-32 pb-16 px-4 md:px-6 relative">
         <div className="max-w-4xl mx-auto relative z-10">
           <Link 
             href="/" 
@@ -64,11 +108,11 @@ export default function Notes() {
             &lt; Back to home
           </Link>
           
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 font-mono">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 font-mono">
             <span className="text-cyan-400">NOTES</span>
             <span className="text-purple-300">.txt</span>
           </h1>
-          <p className="text-xl text-slate-300 max-w-2xl font-mono">
+          <p className="text-lg md:text-xl text-slate-300 max-w-2xl font-mono">
             <span className="text-cyan-400">{'//'}</span> Personal thoughts and random musings 
             about the things I enjoy and discover. More to come...
           </p>
@@ -76,13 +120,13 @@ export default function Notes() {
       </section>
 
       {/* Featured Article */}
-      <section className="pb-8 px-6">
+      <section className="pb-8 px-4 md:px-6">
         <div className="max-w-4xl mx-auto">
           {notes.filter(note => note.featured).map((note) => (
-            <div key={note.slug} className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-lg p-8 border border-cyan-400/30 mb-12 relative overflow-hidden">
+            <div key={note.slug} className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-lg p-4 md:p-8 border border-cyan-400/30 mb-12 relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-purple-500/10 rounded-lg"></div>
               <div className="relative z-10">
-                <div className="flex items-center gap-4 mb-4">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-4">
                   <span className="bg-cyan-400/20 text-cyan-400 text-sm font-mono px-3 py-1 rounded border border-cyan-400/30">
                     FEATURED
                   </span>
@@ -96,7 +140,7 @@ export default function Notes() {
                   </div>
                 </div>
                 
-                <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 font-mono">
+                <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-4 font-mono">
                   {note.title}
                 </h2>
                 
@@ -106,9 +150,9 @@ export default function Notes() {
                 
                 <Link 
                   href={`/notes/${note.slug}`}
-                  className="inline-flex items-center gap-2 bg-cyan-500 text-white px-6 py-3 rounded-lg font-mono font-semibold hover:bg-cyan-600 transition-all duration-300 shadow-lg hover:shadow-cyan-500/25 hover:scale-105"
+                  className="inline-flex items-center gap-2 bg-cyan-500 text-white px-4 md:px-6 py-2 md:py-3 rounded-lg font-mono font-semibold hover:bg-cyan-600 transition-all duration-300 shadow-lg hover:shadow-cyan-500/25 hover:scale-105 text-sm md:text-base"
                 >
-                  <FileText className="w-5 h-5" />
+                  <FileText className="w-4 h-4 md:w-5 md:h-5" />
                   Read Article
                 </Link>
               </div>
@@ -118,7 +162,7 @@ export default function Notes() {
       </section>
 
       {/* Articles Grid */}
-      <section className="pb-16 px-6">
+      <section className="pb-16 px-4 md:px-6">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl font-bold text-white mb-8 font-mono">
             &lt;All_Articles&gt;
@@ -128,7 +172,7 @@ export default function Notes() {
             {notes.map((note) => (
               <article 
                 key={note.slug}
-                className="bg-slate-800/50 backdrop-blur-sm rounded-lg p-8 border border-cyan-400/30 hover:border-cyan-400/60 transition-all duration-300 hover:scale-[1.02]"
+                className="bg-slate-800/50 backdrop-blur-sm rounded-lg p-4 md:p-8 border border-cyan-400/30 hover:border-cyan-400/60 transition-all duration-300 hover:scale-[1.02]"
               >
                 <div className="flex items-center gap-4 mb-4 text-sm text-slate-400 font-mono">
                   <div className="flex items-center gap-2">
@@ -162,15 +206,15 @@ export default function Notes() {
       </section>
 
       {/* Social Links Section */}
-      <section className="py-16 px-6 relative">
+      <section className="py-16 px-4 md:px-6 relative">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-2xl font-bold text-white mb-8 font-mono">
             &lt;Connect_With_Me&gt;
           </h2>
-          <div className="flex justify-center items-center gap-8">
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-8">
             <a
               href="mailto:matthewli.rt@gmail.com"
-              className="group flex items-center gap-2 bg-slate-800/50 px-6 py-3 rounded-lg text-slate-300 hover:text-cyan-400 transition-all duration-300 border border-cyan-400/30 hover:border-cyan-400/60 hover:shadow-lg hover:shadow-cyan-500/25"
+              className="w-full sm:w-auto group flex items-center justify-center gap-2 bg-slate-800/50 px-6 py-3 rounded-lg text-slate-300 hover:text-cyan-400 transition-all duration-300 border border-cyan-400/30 hover:border-cyan-400/60 hover:shadow-lg hover:shadow-cyan-500/25"
             >
               <Mail className="w-6 h-6 group-hover:scale-110 transition-transform" />
               <span className="font-mono">Email</span>
@@ -179,7 +223,7 @@ export default function Notes() {
               href="https://linkedin.com/in/matthewli15" 
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-2 bg-slate-800/50 px-6 py-3 rounded-lg text-slate-300 hover:text-cyan-400 transition-all duration-300 border border-cyan-400/30 hover:border-cyan-400/60 hover:shadow-lg hover:shadow-cyan-500/25"
+              className="w-full sm:w-auto group flex items-center justify-center gap-2 bg-slate-800/50 px-6 py-3 rounded-lg text-slate-300 hover:text-cyan-400 transition-all duration-300 border border-cyan-400/30 hover:border-cyan-400/60 hover:shadow-lg hover:shadow-cyan-500/25"
             >
               <Linkedin className="w-6 h-6 group-hover:scale-110 transition-transform" />
               <span className="font-mono">LinkedIn</span>
@@ -188,7 +232,7 @@ export default function Notes() {
               href="https://github.com/matthewli10" 
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-2 bg-slate-800/50 px-6 py-3 rounded-lg text-slate-300 hover:text-cyan-400 transition-all duration-300 border border-cyan-400/30 hover:border-cyan-400/60 hover:shadow-lg hover:shadow-cyan-500/25"
+              className="w-full sm:w-auto group flex items-center justify-center gap-2 bg-slate-800/50 px-6 py-3 rounded-lg text-slate-300 hover:text-cyan-400 transition-all duration-300 border border-cyan-400/30 hover:border-cyan-400/60 hover:shadow-lg hover:shadow-cyan-500/25"
             >
               <Github className="w-6 h-6 group-hover:scale-110 transition-transform" />
               <span className="font-mono">GitHub</span>
@@ -198,7 +242,7 @@ export default function Notes() {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 px-6 border-t border-cyan-400/20 bg-slate-800/30 backdrop-blur-sm">
+      <footer className="py-8 px-4 md:px-6 border-t border-cyan-400/20 bg-slate-800/30 backdrop-blur-sm">
         <div className="max-w-4xl mx-auto text-center text-slate-400 font-mono">
           <p>&copy; 2025 Matthew Li. Built with Next.js and Tailwind CSS.</p>
         </div>
