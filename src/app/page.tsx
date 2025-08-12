@@ -1,7 +1,12 @@
+"use client";
+
 import Link from "next/link";
-import { ArrowRight, Github, Linkedin, Code, Cpu, Mail } from "lucide-react";
+import { ArrowRight, Github, Linkedin, Code, Cpu, Mail, Menu, X } from "lucide-react";
+import { useState } from "react";
 
 export default function Home() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">
       {/* Animated background grid */}
@@ -14,12 +19,14 @@ export default function Home() {
 
       {/* Navigation */}
       <nav className="fixed top-0 w-full bg-slate-900/80 backdrop-blur-md border-b border-cyan-400/20 z-50">
-        <div className="max-w-4xl mx-auto px-6 py-4">
+        <div className="max-w-4xl mx-auto px-4 md:px-6 py-4">
           <div className="flex items-center justify-between">
-            <Link href="/" className="text-xl font-bold text-cyan-400 font-mono tracking-wider">
+            <Link href="/" className="text-lg md:text-xl font-bold text-cyan-400 font-mono tracking-wider">
               &lt;Matthew_Li/&gt;
             </Link>
-            <div className="flex items-center space-x-6">
+            
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center space-x-6">
               <Link href="/experience" className="text-slate-300 hover:text-cyan-400 transition-colors font-mono">
                 [Experience]
               </Link>
@@ -30,12 +37,49 @@ export default function Home() {
                 [Notes]
               </Link>
             </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              className="md:hidden text-cyan-400 hover:text-cyan-300 transition-colors"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
           </div>
+
+          {/* Mobile Navigation Menu */}
+          {isMobileMenuOpen && (
+            <div className="md:hidden mt-4 pb-4 border-t border-cyan-400/20">
+              <div className="flex flex-col space-y-3 pt-4">
+                <Link 
+                  href="/experience" 
+                  className="text-slate-300 hover:text-cyan-400 transition-colors font-mono py-2"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  [Experience]
+                </Link>
+                <Link 
+                  href="/projects" 
+                  className="text-slate-300 hover:text-cyan-400 transition-colors font-mono py-2"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  [Projects]
+                </Link>
+                <Link 
+                  href="/notes" 
+                  className="text-slate-300 hover:text-cyan-400 transition-colors font-mono py-2"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  [Notes]
+                </Link>
+              </div>
+            </div>
+          )}
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-16 px-6 relative">
+      <section className="pt-32 pb-16 px-4 md:px-6 relative">
         <div className="max-w-4xl mx-auto text-center">
           <div className="mb-16">
             {/* Status indicator */}
@@ -49,21 +93,21 @@ export default function Home() {
                 I&apos;m Matthew
               </span>
             </h1>
-            <p className="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto leading-relaxed font-mono">
+            <p className="text-lg md:text-xl lg:text-2xl text-slate-300 max-w-3xl mx-auto leading-relaxed font-mono px-4">
               Software engineer & CS student at UCSB. 
               <span className="text-cyan-300"> Leveraging data and technology to solve real-world challenges.</span>
             </p>
           </div>
 
           {/* CTA Button */}
-          <div className="flex justify-center items-center mb-8">
+          <div className="flex justify-center items-center mb-8 px-4">
             <Link 
               href="/experience"
-              className="group relative inline-flex items-center gap-2 bg-gradient-to-r from-cyan-500 to-purple-500 text-white px-8 py-4 rounded-lg font-mono font-semibold hover:from-cyan-600 hover:to-purple-600 transition-all duration-300 shadow-lg hover:shadow-cyan-500/25 hover:scale-105 border border-cyan-400/30"
+              className="group relative inline-flex items-center gap-2 bg-gradient-to-r from-cyan-500 to-purple-500 text-white px-6 md:px-8 py-3 md:py-4 rounded-lg font-mono font-semibold hover:from-cyan-600 hover:to-purple-600 transition-all duration-300 shadow-lg hover:shadow-cyan-500/25 hover:scale-105 border border-cyan-400/30 text-sm md:text-base"
             >
-              <Code className="w-5 h-5" />
+              <Code className="w-4 h-4 md:w-5 md:h-5" />
               <span>VIEW_EXPERIENCE();</span>
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" />
               <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-lg blur opacity-0 group-hover:opacity-20 transition-opacity"></div>
             </Link>
           </div>
@@ -71,30 +115,30 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section className="py-16 px-6 bg-slate-800/30 backdrop-blur-sm border-t border-b border-cyan-400/20">
+      <section className="py-16 px-4 md:px-6 bg-slate-800/30 backdrop-blur-sm border-t border-b border-cyan-400/20">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-8 text-center font-mono">
             &lt;About_Me&gt;
           </h2>
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
-              <p className="text-lg text-slate-300 leading-relaxed mb-6 font-mono">
+              <p className="text-base md:text-lg text-slate-300 leading-relaxed mb-6 font-mono">
                 <span className="text-cyan-400">{'// 4th year CS major at UC Santa Barbara (\'26)'}</span>
                 <br />
                 Focused on backend, data platforms, and AI systems. 
                 Shipped optimization and infrastructure at AMD, Tesla, and Genentech.
               </p>
-              <p className="text-lg text-slate-300 leading-relaxed mb-6 font-mono">
+              <p className="text-base md:text-lg text-slate-300 leading-relaxed mb-6 font-mono">
                 <span className="text-purple-400">{'// When not coding...'}</span>
                 <br />
                 Keeping up with tech trends, following stock market, exploring restaurants, or playing sports.
               </p>
             </div>
-            <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-8 border border-cyan-400/30 relative overflow-hidden">
+            <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-4 md:p-8 border border-cyan-400/30 relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-purple-500/10 rounded-2xl"></div>
               <div className="relative z-10">
-                <h3 className="text-2xl font-bold text-white mb-6 font-mono flex items-center gap-2">
-                  <Cpu className="w-6 h-6 text-cyan-400" />
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-6 font-mono flex items-center gap-2">
+                  <Cpu className="w-5 h-5 md:w-6 md:h-6 text-cyan-400" />
                   SKILLS.exe
                 </h3>
                 <div className="space-y-4">
@@ -149,15 +193,15 @@ export default function Home() {
       </section>
 
       {/* Social Links Section */}
-      <section className="py-16 px-6 relative">
+      <section className="py-16 px-4 md:px-6 relative">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-2xl font-bold text-white mb-8 font-mono">
             &lt;Connect_With_Me&gt;
           </h2>
-          <div className="flex justify-center items-center gap-8">
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-8">
             <a
               href="mailto:matthewli.rt@gmail.com"
-              className="group flex items-center gap-2 bg-slate-800/50 px-6 py-3 rounded-lg text-slate-300 hover:text-cyan-400 transition-all duration-300 border border-cyan-400/30 hover:border-cyan-400/60 hover:shadow-lg hover:shadow-cyan-500/25"
+              className="w-full sm:w-auto group flex items-center justify-center gap-2 bg-slate-800/50 px-6 py-3 rounded-lg text-slate-300 hover:text-cyan-400 transition-all duration-300 border border-cyan-400/30 hover:border-cyan-400/60 hover:shadow-lg hover:shadow-cyan-500/25"
             >
               <Mail className="w-6 h-6 group-hover:scale-110 transition-transform" />
               <span className="font-mono">Email</span>
@@ -166,7 +210,7 @@ export default function Home() {
               href="https://linkedin.com/in/matthewli15" 
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-2 bg-slate-800/50 px-6 py-3 rounded-lg text-slate-300 hover:text-cyan-400 transition-all duration-300 border border-cyan-400/30 hover:border-cyan-400/60 hover:shadow-lg hover:shadow-cyan-500/25"
+              className="w-full sm:w-auto group flex items-center justify-center gap-2 bg-slate-800/50 px-6 py-3 rounded-lg text-slate-300 hover:text-cyan-400 transition-all duration-300 border border-cyan-400/30 hover:border-cyan-400/60 hover:shadow-lg hover:shadow-cyan-500/25"
             >
               <Linkedin className="w-6 h-6 group-hover:scale-110 transition-transform" />
               <span className="font-mono">LinkedIn</span>
@@ -175,7 +219,7 @@ export default function Home() {
               href="https://github.com/matthewli10" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="group flex items-center gap-2 bg-slate-800/50 px-6 py-3 rounded-lg text-slate-300 hover:text-cyan-400 transition-all duration-300 border border-cyan-400/30 hover:border-cyan-400/60 hover:shadow-lg hover:shadow-cyan-500/25"
+              className="w-full sm:w-auto group flex items-center justify-center gap-2 bg-slate-800/50 px-6 py-3 rounded-lg text-slate-300 hover:text-cyan-400 transition-all duration-300 border border-cyan-400/30 hover:border-cyan-400/60 hover:shadow-lg hover:shadow-cyan-500/25"
             >
               <Github className="w-6 h-6 group-hover:scale-110 transition-transform" />
               <span className="font-mono">GitHub</span>
@@ -185,7 +229,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 px-6 border-t border-cyan-400/20 bg-slate-800/30 backdrop-blur-sm">
+      <footer className="py-8 px-4 md:px-6 border-t border-cyan-400/20 bg-slate-800/30 backdrop-blur-sm">
         <div className="max-w-4xl mx-auto text-center text-slate-400 font-mono">
           <p>&copy; 2025 Matthew Li. Built with Next.js and Tailwind CSS.</p>
         </div>
