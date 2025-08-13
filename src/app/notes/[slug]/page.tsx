@@ -15,8 +15,10 @@ const getNoteBySlug = (slug: string) => {
         <p class="text-slate-200">Self Control - Frank Ocean</p>
         <p class="text-slate-200">Yellow - Coldplay</p>
         <p class="text-slate-200">Brazil - Declan McKenna</p>
-        <p class="text-slate-200">Over My Dead Body - Drake</p>
         <p class="text-slate-200">Until I Found You - Stephen Sanchez</p>
+        <p class="text-slate-200">ten - Fred again..</p>
+        <p class="text-slate-200">Over My Dead Body - Drake</p>
+        <p class="text-slate-200">Hold On, We're Going Home - Drake</p>
    
         <hr style="margin: 2rem 0; border: none; border-top: 1px solid #475569;">
         <p style="font-size: 0.875rem; color: #94a3b8; margin: 0;">Last updated: August 10, 2025</p>

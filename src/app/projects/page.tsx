@@ -19,7 +19,7 @@ const projects = [
     technologies: ["Next.js", "TypeScript", "Tailwind CSS", "MDX"],
     github: "https://github.com/matthewli10/personalSite",
     live: null,
-    featured: true
+    featured: false
   },
   {
     title: "GreenGrade",
