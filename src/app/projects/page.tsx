@@ -8,7 +8,7 @@ const projects = [
   {
     title: "FinAgent-AI",
     description: "FinAgent-AI is a full-stack mobile application that leverages artificial intelligence to analyze SEC 10-Q earnings reports and provide real-time investment insights. Built with React Native and FastAPI, the platform combines AI technology with financial data to help users make informed investment decisions.",
-    technologies: ["Python", "TypeScript","React Native", "FastAPI", "Firebase Auth", "PostgreSQL", "OpenAI API"],
+    technologies: ["Python", "TypeScript","React Native", "FastAPI", "Firebase Auth", "PostgreSQL", "OpenAI API", "Docker"],
     github: "https://github.com/matthewli10/FinAgent-AI",
     live: null,
     featured: true
