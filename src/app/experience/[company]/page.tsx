@@ -46,9 +46,83 @@ const getExperienceByCompany = (companySlug: string) => {
       technologies: ["Python", "PySpark", "SQL", "Spark SQL", "Snowflake", "AWS Glue", "AWS Lambda", "AWS S3", "AWS Redshift", "AWS Athena", "Retrieval-Augmented Generation (RAG)"],
       featured: false,
       detailedContent: `
-        <div style="text-align: center; padding: 4rem 2rem;">
-          <h3 style="color: #06b6d4; margin-bottom: 1rem; font-size: 1.5rem;">Coming Soon</h3>
-          <p style="color: #94a3b8; font-size: 1.1rem;">Detailed experience page is under construction. Check back soon!</p>
+        <div class="space-y-8">
+          <div class="bg-slate-700/30 rounded-lg p-6 border border-cyan-400/20">
+            <h3 class="text-xl font-bold text-cyan-400 mb-4 font-mono">Data Pipeline Development & Integration</h3>
+            <div class="space-y-4 text-slate-200">
+              <div>
+                <h4 class="text-lg font-semibold text-white mb-2">Snowflake → AWS S3 Data Movement</h4>
+                <ul class="list-disc list-inside space-y-2 text-sm leading-relaxed">
+                  <li>Built AWS Glue jobs using PySpark and Spark SQL to extract data from Snowflake, transform it into required schemas, and load into Amazon S3</li>
+                  <li>Implemented CSV-to-Parquet conversions for more efficient querying and storage</li>
+                  <li>Automated ingestion processes, reducing manual steps and improving pipeline reliability</li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="text-lg font-semibold text-white mb-2">ETL Process Implementation</h4>
+                <ul class="list-disc list-inside space-y-2 text-sm leading-relaxed">
+                  <li>Applied ETL concepts — extracting raw SAP/Snowflake data, transforming it (column parsing, splitting, and formatting), and loading into target systems</li>
+                  <li>Worked with data ingestion flows for ValueTrak billing and other IRIS-related data products</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-slate-700/30 rounded-lg p-6 border border-cyan-400/20">
+            <h3 class="text-xl font-bold text-cyan-400 mb-4 font-mono">Retrieval-Augmented Generation (RAG) System</h3>
+            <div class="space-y-4 text-slate-200">
+              <div>
+                <h4 class="text-lg font-semibold text-white mb-2">AspireGPT Application Development</h4>
+                <ul class="list-disc list-inside space-y-2 text-sm leading-relaxed">
+                  <li>Engineered a ChatGPT-like application that engaged SAP cloud data and Azure OpenAI to assist 100+ interns with updated SAP data flow and mapping requirements</li>
+                  <li>Designed and implemented the RAG architecture to retrieve relevant SAP documentation and system information, then generate contextual responses using Azure OpenAI</li>
+                  <li>Enhanced intern efficiency by providing instant access to complex SAP data systems, reducing time spent searching through documentation and improving understanding of new data flows</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-slate-700/30 rounded-lg p-6 border border-cyan-400/20">
+            <h3 class="text-xl font-bold text-cyan-400 mb-4 font-mono">SQL Development & Data Modeling</h3>
+            <div class="space-y-4 text-slate-200">
+              <div>
+                <h4 class="text-lg font-semibold text-white mb-2">Snowflake SQL Optimization</h4>
+                <ul class="list-disc list-inside space-y-2 text-sm leading-relaxed">
+                  <li>Wrote and optimized complex SQL statements to extract, join, and transform data from multiple Snowflake schemas</li>
+                  <li>Designed queries to map raw SAP data to ValueTrak Billing Document specifications, handling null values and field mismatches</li>
+                  <li>Verified query outputs with Oracle SQL developers to ensure consistency between systems</li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="text-lg font-semibold text-white mb-2">Data Warehouse Architecture</h4>
+                <ul class="list-disc list-inside space-y-2 text-sm leading-relaxed">
+                  <li>Applied fact & dimension table concepts for analytics, differentiating between transactional facts and descriptive dimensions</li>
+                  <li>Used SQL string manipulation (SPLIT_PART, DATE_FORMAT, LPAD, etc.) to create business-ready columns such as calendar months/weeks</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-slate-700/30 rounded-lg p-6 border border-cyan-400/20">
+            <h3 class="text-xl font-bold text-cyan-400 mb-4 font-mono">Machine Learning & System Integration</h3>
+            <div class="space-y-4 text-slate-200">
+              <div>
+                <h4 class="text-lg font-semibold text-white mb-2">Dataiku ML Pipeline Training</h4>
+                <ul class="list-disc list-inside space-y-2 text-sm leading-relaxed">
+                  <li>Built a predictive model to detect fraudulent job postings, starting with comprehensive data cleansing</li>
+                  <li>Applied Python scripts to handle missing values, generate derived columns, and prepare datasets for modeling</li>
+                  <li>Implemented feature engineering techniques including column splitting, text standardization, and data validation</li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="text-lg font-semibold text-white mb-2">Enterprise System Integration</h4>
+                <ul class="list-disc list-inside space-y-2 text-sm leading-relaxed">
+                  <li>Collaborated with IT leads to compile metadata for partner systems and mapped interfaces for ASPIRE&apos;s SAP S/4HANA migration</li>
+                  <li>Attended Palantir Foundry trainings to understand enterprise data integration capabilities</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       `
     }
