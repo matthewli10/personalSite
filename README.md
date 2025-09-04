@@ -9,7 +9,7 @@ Personal website built with Next.js 15, TypeScript, and Tailwind CSS. Features i
 This website uses Next.js 15 with the App Router for dynamic routing and static generation. I styled it with Tailwind CSS for rapid development and consistent design. The site includes:
 
 - Dynamic routes for individual experience and note pages
-- Animated backgrounds with CSS gradients and keyframes
+- Backgrounds with CSS gradients and keyframes
 - Responsive layouts using Tailwind's grid and flexbox utilities
 - TypeScript for type safety and better development experience
 
