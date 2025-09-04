@@ -14,6 +14,7 @@ const getNoteBySlug = (slug: string) => {
         <p class="text-slate-200">So Into You - Tamia</p>
         <p class="text-slate-200">Self Control - Frank Ocean</p>
         <p class="text-slate-200">Yellow - Coldplay</p>
+        <p class="text-slate-200">The Man Who Can't Be Moved - The Script</p>
         <p class="text-slate-200">Brazil - Declan McKenna</p>
         <p class="text-slate-200">Until I Found You - Stephen Sanchez</p>
         <p class="text-slate-200">ten - Fred again..</p>
