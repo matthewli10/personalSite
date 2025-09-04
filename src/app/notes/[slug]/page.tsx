@@ -22,7 +22,7 @@ const getNoteBySlug = (slug: string) => {
         <p class="text-slate-200">Hold On, We're Going Home - Drake</p>
    
         <hr style="margin: 2rem 0; border: none; border-top: 1px solid #475569;">
-        <p style="font-size: 0.875rem; color: #94a3b8; margin: 0;">Last updated: August 10, 2025</p>
+        <p style="font-size: 0.875rem; color: #94a3b8; margin: 0;">Last updated: September 3, 2025</p>
       `,
       date: "2025-03-15",
       readTime: "1 min read",
