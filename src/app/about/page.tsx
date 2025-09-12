@@ -156,7 +156,7 @@ export default function About() {
                     Looking ahead, I&apos;m excited about opportunities that allow me to merge my skills in software engineering, data systems, and AI with my curiosity about how technology solves real-world challenges.
                   </p>
                       <p>
-                        Thank you for visiting my site. I invite you to explore my projects, experiences, and reflections—each one a step in my journey toward becoming not just a software engineer, but a problem-solver driven by curiosity, creativity, and impact.
+                        Thank you for visiting my site. Feel free to explore my projects, experiences, and notes!
                       </p>
                     </div>
                   </div>
