@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowLeft, Calendar, MapPin, Building, Github, Linkedin, Mail } from "lucide-react";
 
 // This would typically come from a database or CMS
@@ -13,6 +14,7 @@ const getExperienceByCompany = (companySlug: string) => {
       description: "Working on software automation for CPU and GPU failure analysis",
       technologies: ["AWS EC2", "Python", "MongoDB", "Snowflake", "Shell Scripting"],
       featured: true,
+      logo: "/amd-logo.png",
       detailedContent: `
         <div style="text-align: center; padding: 4rem 2rem;">
           <h3 style="color: #06b6d4; margin-bottom: 1rem; font-size: 1.5rem;">Coming Soon</h3>
@@ -29,6 +31,7 @@ const getExperienceByCompany = (companySlug: string) => {
       description: "Developed software optimization and data pipelines for finished vehicles and carrier routing",
       technologies: ["Python", "Linear Programming", "MySQL", "Apache Airflow", "SQL"],
       featured: true,
+      logo: "/tesla-logo.png",
       detailedContent: `
         <div style="text-align: center; padding: 4rem 2rem;">
           <h3 style="color: #06b6d4; margin-bottom: 1rem; font-size: 1.5rem;">Coming Soon</h3>
@@ -45,6 +48,7 @@ const getExperienceByCompany = (companySlug: string) => {
       description: "Built large-scale data pipelines for data products and internal AI chatbot using RAG",
       technologies: ["Python", "PySpark", "SQL", "Spark SQL", "Snowflake", "AWS Glue", "AWS Lambda", "AWS S3", "AWS Redshift", "AWS Athena", "Retrieval-Augmented Generation (RAG)"],
       featured: false,
+      logo: "/genentech-logo.png",
       detailedContent: `
         <div class="space-y-8">
           <div class="bg-slate-700/30 rounded-lg p-6 border border-cyan-400/20">
@@ -172,6 +176,9 @@ export default async function ExperienceDetail({ params }: { params: Promise<{ c
               &lt;Matthew_Li/&gt;
             </Link>
             <div className="flex items-center space-x-6">
+              <Link href="/about" className="text-slate-300 hover:text-cyan-400 transition-colors font-mono">
+                [About]
+              </Link>
               <Link href="/experience" className="text-cyan-400 font-mono">
                 [Experience]
               </Link>
@@ -197,7 +204,7 @@ export default async function ExperienceDetail({ params }: { params: Promise<{ c
             &lt; Back to experience
           </Link>
           
-          <article className="bg-slate-800/50 backdrop-blur-sm rounded-lg p-8 border border-cyan-400/30">
+          <article className="bg-slate-800/50 backdrop-blur-sm rounded-lg p-8 border border-cyan-400/30 relative">
             {/* Experience Header */}
             <header className="mb-8">
               {experience.featured && (
@@ -216,14 +223,27 @@ export default async function ExperienceDetail({ params }: { params: Promise<{ c
                     {experience.position}
                   </p>
                 </div>
-                <div className="text-right text-slate-400 font-mono">
-                  <div className="flex items-center gap-1 mb-1">
-                    <Calendar className="w-4 h-4" />
-                    <span className="text-sm">{experience.duration}</span>
+                
+                <div className="flex items-center gap-4">
+                  <div className="text-right text-slate-400 font-mono">
+                    <div className="flex items-center gap-1 mb-1">
+                      <Calendar className="w-4 h-4" />
+                      <span className="text-sm">{experience.duration}</span>
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <MapPin className="w-4 h-4" />
+                      <span className="text-sm">{experience.location}</span>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-1">
-                    <MapPin className="w-4 h-4" />
-                    <span className="text-sm">{experience.location}</span>
+                  
+                  {/* Company Logo - Right Side */}
+                  <div className="w-16 h-16 relative">
+                    <Image
+                      src={experience.logo}
+                      alt={`${experience.company} logo`}
+                      fill
+                      className="object-contain"
+                    />
                   </div>
                 </div>
               </div>
@@ -242,6 +262,7 @@ export default async function ExperienceDetail({ params }: { params: Promise<{ c
                   </span>
                 ))}
               </div>
+              
             </header>
             
             {/* Detailed Content */}

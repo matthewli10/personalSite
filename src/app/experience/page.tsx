@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowLeft, Calendar, MapPin, Building, Github, Linkedin, Mail, Menu, X } from "lucide-react";
 import { useState } from "react";
 
@@ -13,7 +14,8 @@ const experiences = [
     duration: "Jun 2025 - Present",
     description: "Working on software automation for CPU and GPU failure analysis",
     technologies: ["AWS EC2", "Python", "MongoDB", "Snowflake", "Shell Scripting"],
-    featured: true
+    featured: true,
+    logo: "/amd-logo.png"
   },
   {
     company: "Tesla",
@@ -23,7 +25,8 @@ const experiences = [
     duration: "Jan 2025 - Jun 2025",
     description: "Developed software optimization and data pipelines for finished vehicles and carrier routing",
     technologies: ["Python", "Linear Programming", "MySQL", "Apache Airflow", "SQL"],
-    featured: true
+    featured: true,
+    logo: "/tesla-logo.png"
   },
   {
     company: "Genentech",
@@ -33,7 +36,8 @@ const experiences = [
     duration: "Jun 2024 - Sep 2024",
     description: "Built large-scale data pipelines for data products and internal AI chatbot using RAG",
     technologies: ["Python", "PySpark", "SQL", "Spark SQL", "Snowflake", "AWS Glue", "AWS Lambda", "AWS S3", "AWS Redshift", "AWS Athena", "Retrieval-Augmented Generation (RAG)"],
-    featured: false
+    featured: false,
+    logo: "/genentech-logo.png"
   }
 ];
 
@@ -60,6 +64,9 @@ export default function Experience() {
             
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-6">
+              <Link href="/about" className="text-slate-300 hover:text-cyan-400 transition-colors font-mono">
+                [About]
+              </Link>
               <Link href="/experience" className="text-cyan-400 font-mono">
                 [Experience]
               </Link>
@@ -84,6 +91,13 @@ export default function Experience() {
           {isMobileMenuOpen && (
             <div className="md:hidden mt-4 pb-4 border-t border-cyan-400/20">
               <div className="flex flex-col space-y-3 pt-4">
+                <Link 
+                  href="/about" 
+                  className="text-slate-300 hover:text-cyan-400 transition-colors font-mono py-2"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  [About]
+                </Link>
                 <Link 
                   href="/experience" 
                   className="text-cyan-400 font-mono py-2"
@@ -139,7 +153,7 @@ export default function Experience() {
             {experiences.map((exp, index) => (
               <div 
                 key={index}
-                className={`bg-slate-800/50 backdrop-blur-sm rounded-lg p-4 md:p-8 border border-cyan-400/30 hover:border-cyan-400/60 transition-all duration-300 hover:scale-[1.02] ${
+                className={`bg-slate-800/50 backdrop-blur-sm rounded-lg p-4 md:p-8 border border-cyan-400/30 hover:border-cyan-400/60 transition-all duration-300 hover:scale-[1.02] relative ${
                   exp.featured ? 'ring-2 ring-cyan-400/30 shadow-lg shadow-cyan-500/25' : ''
                 }`}
               >
@@ -159,14 +173,27 @@ export default function Experience() {
                       {exp.position}
                     </p>
                   </div>
-                  <div className="text-right text-slate-400 font-mono">
-                    <div className="flex items-center gap-1 mb-1">
-                      <Calendar className="w-4 h-4" />
-                      <span className="text-sm">{exp.duration}</span>
+                  
+                  <div className="flex items-center gap-4">
+                    <div className="text-right text-slate-400 font-mono">
+                      <div className="flex items-center gap-1 mb-1">
+                        <Calendar className="w-4 h-4" />
+                        <span className="text-sm">{exp.duration}</span>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <MapPin className="w-4 h-4" />
+                        <span className="text-sm">{exp.location}</span>
+                      </div>
                     </div>
-                    <div className="flex items-center gap-1">
-                      <MapPin className="w-4 h-4" />
-                      <span className="text-sm">{exp.location}</span>
+                    
+                    {/* Company Logo - Right Side */}
+                    <div className="w-12 h-12 relative">
+                      <Image
+                        src={exp.logo}
+                        alt={`${exp.company} logo`}
+                        fill
+                        className="object-contain"
+                      />
                     </div>
                   </div>
                 </div>
@@ -186,6 +213,7 @@ export default function Experience() {
                   ))}
                 </div>
                 
+
                 {/* Read More Button */}
                 <div className="mt-6">
                   <Link 

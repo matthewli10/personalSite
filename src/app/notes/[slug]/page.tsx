@@ -1,8 +1,5 @@
-"use client";
-
 import Link from "next/link";
-import { ArrowLeft, Calendar, Clock, Github, Linkedin, Mail, Menu, X } from "lucide-react";
-import { useState } from "react";
+import { ArrowLeft, Calendar, Clock, Github, Linkedin, Mail } from "lucide-react";
 
 // This would typically come from a database or CMS
 const getNoteBySlug = (slug: string) => {
@@ -11,6 +8,11 @@ const getNoteBySlug = (slug: string) => {
       title: "favorite songs",
       excerpt: "a collection of my favorite songs, current and past",
       content: `
+        <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem;">
+          <img src="/spotify-logo.png" alt="Spotify" style="width: 24px; height: 24px;" />
+          <span class="text-slate-200" style="font-weight: 600;">Available on Spotify</span>
+        </div>
+        
         <p class="text-slate-200">So Into You - Tamia</p>
         <p class="text-slate-200">Self Control - Frank Ocean</p>
         <p class="text-slate-200">Yellow - Coldplay</p>
@@ -114,7 +116,10 @@ export default async function NotePage({ params }: { params: Promise<{ slug: str
             <Link href="/" className="text-lg md:text-xl font-bold text-cyan-400 font-mono tracking-wider">
               &lt;Matthew_Li/&gt;
             </Link>
-            <div className="flex items-center space-x-6">
+            <div className="hidden md:flex items-center space-x-6">
+              <Link href="/about" className="text-slate-300 hover:text-cyan-400 transition-colors font-mono">
+                [About]
+              </Link>
               <Link href="/experience" className="text-slate-300 hover:text-cyan-400 transition-colors font-mono">
                 [Experience]
               </Link>

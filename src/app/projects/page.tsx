@@ -54,6 +54,9 @@ export default function Projects() {
             
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-6">
+              <Link href="/about" className="text-slate-300 hover:text-cyan-400 transition-colors font-mono">
+                [About]
+              </Link>
               <Link href="/experience" className="text-slate-300 hover:text-cyan-400 transition-colors font-mono">
                 [Experience]
               </Link>
@@ -78,6 +81,13 @@ export default function Projects() {
           {isMobileMenuOpen && (
             <div className="md:hidden mt-4 pb-4 border-t border-cyan-400/20">
               <div className="flex flex-col space-y-3 pt-4">
+                <Link 
+                  href="/about" 
+                  className="text-slate-300 hover:text-cyan-400 transition-colors font-mono py-2"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  [About]
+                </Link>
                 <Link 
                   href="/experience" 
                   className="text-slate-300 hover:text-cyan-400 transition-colors font-mono py-2"
